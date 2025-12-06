@@ -11,6 +11,7 @@ pub struct DownloadResponse {
 }
 
 #[derive(Deserialize)]
+#[allow(dead_code)]
 pub struct ListResponse {
     pub skills: Vec<SkillResponse>,
     pub total: u32,
@@ -20,6 +21,7 @@ pub struct ListResponse {
 }
 
 #[derive(Deserialize)]
+#[allow(dead_code)]
 pub struct SkillResponse {
     pub id: String,
     pub title: String,
@@ -33,6 +35,7 @@ pub struct SkillResponse {
 }
 
 #[derive(Deserialize)]
+#[allow(dead_code)]
 pub struct Author {
     pub name: String,
     pub github: String,

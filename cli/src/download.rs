@@ -1,7 +1,8 @@
 use crate::api::clawd::ClawdClient;
 use crate::api::github::GitHubClient;
-use crate::config::Config;
+use crate::config::{Config, InstallScope};
 use crate::error::ClawdError;
+use crate::prompts::{prompt_overwrite, prompt_scope};
 use anyhow::Result;
 use indicatif::{ProgressBar, ProgressStyle};
 use std::fs;
@@ -9,15 +10,26 @@ use std::path::PathBuf;
 
 pub async fn execute_download(
     skill_id: String,
+    scope_arg: Option<String>,
+    force: bool,
     custom_path: Option<PathBuf>,
     api_url: Option<String>,
 ) -> Result<()> {
     let (author, name) = parse_skill_id(&skill_id)?;
 
+    let scope = if custom_path.is_some() {
+        InstallScope::User
+    } else if let Some(scope_str) = scope_arg {
+        InstallScope::from_str(&scope_str)?
+    } else {
+        prompt_scope()?
+    };
+
     let config = Config::new(api_url)?;
-    let install_path = config.resolve_install_path(&name, custom_path);
+    let install_path = config.resolve_install_path(&name, custom_path.clone(), scope)?;
 
     println!("📦 Downloading skill: {}/{}", author, name);
+    println!("📂 Target: {:?} ({})", install_path, scope);
 
     let clawd = ClawdClient::new(config.api_url);
     let download_info = clawd.get_download_info(&author, &name).await?;
@@ -25,12 +37,21 @@ pub async fn execute_download(
     println!("📍 Source: {}/{}", download_info.repo, download_info.path);
 
     if install_path.exists() {
-        println!(
-            "⚠️  Skill already exists at {:?}, will overwrite",
-            install_path
-        );
-        fs::remove_dir_all(&install_path)?;
+        if force {
+            println!("⚠️  Overwriting existing skill (--force)");
+            fs::remove_dir_all(&install_path)?;
+        } else {
+            let should_overwrite = prompt_overwrite(&install_path)?;
+            if should_overwrite {
+                println!("⚠️  Overwriting existing skill");
+                fs::remove_dir_all(&install_path)?;
+            } else {
+                println!("❌ Installation cancelled");
+                return Ok(());
+            }
+        }
     }
+
     fs::create_dir_all(&install_path)?;
 
     let github = GitHubClient::new();

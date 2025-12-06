@@ -22,4 +22,13 @@ pub enum ClawdError {
 
     #[error("Invalid response: {0}")]
     InvalidResponse(String),
+
+    #[error("Invalid scope: {0}. Expected 'user' or 'project'")]
+    InvalidScope(String),
+
+    #[error("No project root found. Could not locate .claude directory in current or parent directories.")]
+    NoProjectRoot,
+
+    #[error("Interactive prompt error: {0}")]
+    PromptError(String),
 }

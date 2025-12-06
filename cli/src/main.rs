@@ -6,6 +6,7 @@ mod config;
 mod download;
 mod error;
 mod list;
+mod prompts;
 
 #[derive(Parser)]
 #[command(name = "clawd")]
@@ -38,7 +39,15 @@ enum Commands {
         /// Skill ID in format: author/skill-name
         skill_id: String,
 
-        /// Custom installation path (default: ~/.claude/skills/<skillname>)
+        /// Installation scope: "user" (~/.claude/skills) or "project" (./.claude/skills)
+        #[arg(short, long, value_name = "SCOPE")]
+        scope: Option<String>,
+
+        /// Force overwrite without confirmation
+        #[arg(short, long)]
+        force: bool,
+
+        /// Custom installation path (overrides scope)
         #[arg(short, long)]
         path: Option<PathBuf>,
 
@@ -63,10 +72,12 @@ async fn main() -> anyhow::Result<()> {
         Commands::Search { query } => println!("Searching for: {}", query),
         Commands::Download {
             skill_id,
+            scope,
+            force,
             path,
             api_url,
         } => {
-            download::execute_download(skill_id, path, api_url).await?;
+            download::execute_download(skill_id, scope, force, path, api_url).await?;
         }
     }
 
