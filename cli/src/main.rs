@@ -7,6 +7,7 @@ mod download;
 mod error;
 mod list;
 mod prompts;
+mod upgrade;
 
 #[derive(Parser)]
 #[command(name = "clawd")]
@@ -55,6 +56,12 @@ enum Commands {
         #[arg(long, env = "CLAWD_API_URL")]
         api_url: Option<String>,
     },
+    /// Upgrade clawd to the latest version
+    Upgrade {
+        /// Force reinstall even if already on latest version
+        #[arg(short, long)]
+        force: bool,
+    },
 }
 
 #[tokio::main]
@@ -78,6 +85,9 @@ async fn main() -> anyhow::Result<()> {
             api_url,
         } => {
             download::execute_download(skill_id, scope, force, path, api_url).await?;
+        }
+        Commands::Upgrade { force } => {
+            upgrade::execute_upgrade(force).await?;
         }
     }
 
