@@ -106,6 +106,10 @@
     "ref": {
       "type": "string",
       "description": "Branch, tag, or commit reference (optional, defaults to repo default branch)"
+    },
+    "isVerified": {
+      "type": "boolean",
+      "description": "Whether the skill has been verified by Clawd team"
     }
   },
   "additionalProperties": false
