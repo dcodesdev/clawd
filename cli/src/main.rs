@@ -5,6 +5,7 @@ mod api;
 mod config;
 mod download;
 mod error;
+mod list;
 
 #[derive(Parser)]
 #[command(name = "clawd")]
@@ -17,7 +18,19 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     /// List available skills
-    List,
+    List {
+        /// Page number (default: 1)
+        #[arg(short, long, default_value_t = 1)]
+        page: u32,
+
+        /// Items per page (default: 20, max: 100)
+        #[arg(short, long, default_value_t = 20)]
+        limit: u32,
+
+        /// Override API URL
+        #[arg(long, env = "CLAWD_API_URL")]
+        api_url: Option<String>,
+    },
     /// Search for a skill
     Search { query: String },
     /// Download a skill
@@ -40,7 +53,13 @@ async fn main() -> anyhow::Result<()> {
     let cli = Cli::parse();
 
     match cli.command {
-        Commands::List => println!("Listing skills..."),
+        Commands::List {
+            page,
+            limit,
+            api_url,
+        } => {
+            list::execute_list(page, limit, api_url).await?;
+        }
         Commands::Search { query } => println!("Searching for: {}", query),
         Commands::Download {
             skill_id,
