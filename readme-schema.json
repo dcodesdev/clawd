@@ -2,7 +2,16 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "README.mdx Frontmatter Schema",
   "type": "object",
-  "required": ["id", "title", "description", "version", "category", "author"],
+  "required": [
+    "id",
+    "title",
+    "description",
+    "version",
+    "category",
+    "author",
+    "repo",
+    "path"
+  ],
   "properties": {
     "id": {
       "type": "string",
@@ -84,6 +93,19 @@
     "license": {
       "type": "string",
       "description": "License identifier (e.g., MIT, Apache-2.0)"
+    },
+    "repo": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]+/[a-zA-Z0-9_.-]+$",
+      "description": "GitHub repository in owner/repo format"
+    },
+    "path": {
+      "type": "string",
+      "description": "Directory path within the repository"
+    },
+    "ref": {
+      "type": "string",
+      "description": "Branch, tag, or commit reference (optional, defaults to repo default branch)"
     }
   },
   "additionalProperties": false
