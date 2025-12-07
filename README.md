@@ -129,7 +129,7 @@ pnpm test:watch             # Watch mode
 
 ## License
 
-See LICENSE file in the repository root.
+MIT License - see [LICENSE](./LICENSE) for details.
 
 ## Authors
 
