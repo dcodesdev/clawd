@@ -1,0 +1,57 @@
+---
+id: anthropics/pptx
+title: PPTX creation, editing, and analysis
+description: Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx files) for creating new presentations, modifying or editing content, working with layouts, adding comments or speaker notes, or any other presentation tasks.
+version: 1.0.0
+category: Development
+author: anthropics
+repo: anthropics/skills
+path: skills/pptx
+tags:
+  - pptx
+  - presentations
+  - powerpoint
+  - presentation-creation
+  - presentation-editing
+---
+
+## Overview
+
+The pptx skill provides comprehensive guidance for creating, editing, and analyzing PowerPoint presentations programmatically. This skill enables Claude to work with presentation files for various tasks including creating new presentations from scratch, modifying existing content, managing layouts, and extracting presentation data.
+
+## Capabilities
+
+This skill covers:
+- **Creating New Presentations** - Generate presentations from HTML or templates
+- **Editing Presentations** - Modify content, layouts, and design elements
+- **Analyzing Presentations** - Extract text, comments, speaker notes, and design properties
+- **Layout Management** - Work with slide layouts and visual design
+- **Metadata Handling** - Add and modify comments, speaker notes, and other presentation metadata
+
+## Workflows
+
+### Reading and Analysis
+Extract text using analysis tools or access raw XML for detailed examination of comments, speaker notes, and design elements.
+
+### Creating Presentations
+Two approaches are available:
+- **Without Template**: Convert HTML slides to PowerPoint with proper formatting and design
+- **With Template**: Duplicate and customize existing template slides, then replace content
+
+### Editing Existing Presentations
+Unpack the .pptx file, modify XML content, validate changes, and repack the presentation.
+
+## Design Principles
+
+When creating presentations, state your content-informed design approach before writing code. Presentations should use web-safe fonts, maintain strong contrast and visual hierarchy, and choose color palettes that genuinely match the specific topic rather than defaulting to industry clichés.
+
+## Use Cases
+
+The pptx skill is useful for:
+- Automated presentation generation from data or templates
+- Batch updating presentation content across multiple files
+- Extracting and analyzing presentation content
+- Creating visually compelling presentations with custom design
+- Automating repetitive presentation tasks
+
+Whether you need to create presentations from scratch, modify existing ones, or extract information from presentations, this toolkit provides the guidance needed to work with PowerPoint files effectively.

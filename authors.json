@@ -1,4 +1,10 @@
 {
+  "anthropics": {
+    "name": "Anthropic",
+    "github": "anthropics",
+    "url": "https://www.anthropic.com",
+    "avatar": "https://github.com/anthropics.png"
+  },
   "dcodes": {
     "name": "dcodes",
     "github": "dcodesdev",

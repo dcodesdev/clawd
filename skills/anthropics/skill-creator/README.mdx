@@ -1,0 +1,79 @@
+---
+id: anthropics/skill-creator
+title: skill-creator
+description: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.
+version: 1.0.0
+category: Development
+author: anthropics
+repo: anthropics/skills
+path: skills/skill-creator
+tags:
+  - skill-creation
+  - workflow-design
+  - knowledge-organization
+  - capability-extension
+---
+
+## Overview
+
+The skill-creator skill provides comprehensive guidance for designing and building effective skills that extend Claude's capabilities. This skill teaches how to create modular packages with specialized knowledge, workflows, and tool integrations that can be distributed and reused.
+
+## Core Principles
+
+### Concise Context Usage
+The context window is a public good. Only include information Claude doesn't already possess. Challenge every piece of content to ensure it justifies its token cost.
+
+### Appropriate Freedom Levels
+Match specificity to task fragility:
+- **Text-based instructions** work for flexible tasks
+- **Pseudocode** for moderate variation
+- **Specific scripts** for error-prone operations requiring consistency
+
+### Skill Anatomy
+Every skill needs:
+- **SKILL.md** - Required file with YAML frontmatter (name and description fields)
+- **scripts/** - Deterministic, repeatedly-used code
+- **references/** - Documentation loaded as needed
+- **assets/** - Templates, images, boilerplate files for output
+
+## Skill Components
+
+### SKILL.md Structure
+- Frontmatter contains triggering metadata
+- Body provides instructions (loaded after skill triggers)
+- Keep under 500 lines to minimize context bloat
+
+### Bundled Resources
+Organize resources strategically:
+- **Scripts**: Deterministic, repeatedly-used code
+- **References**: Documentation loaded as needed
+- **Assets**: Templates, images, boilerplate files for output
+
+## Progressive Disclosure Design
+
+Load information strategically across three levels:
+1. **Metadata** - Always present for skill discovery
+2. **SKILL.md Body** - When the skill is triggered
+3. **Bundled Resources** - As needed during execution
+
+This prevents context bloat while keeping information discoverable.
+
+## Creation Process
+
+1. **Understand** the skill through concrete examples
+2. **Plan** reusable contents (scripts, references, assets)
+3. **Initialize** the skill structure
+4. **Edit** SKILL.md and implement resources
+5. **Package** using validation tools
+6. **Iterate** based on real-world usage
+
+## Use Cases
+
+The skill-creator skill is useful for:
+- Building custom skills for specialized domains
+- Creating reusable workflows and templates
+- Packaging tools and integrations as distributable skills
+- Organizing knowledge in efficient, context-aware formats
+- Extending Claude with domain-specific capabilities
+
+Whether you're creating a skill for data processing, content generation, automation, or any other domain, this guide provides the principles and patterns needed to build effective, maintainable skills.

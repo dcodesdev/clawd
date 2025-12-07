@@ -1,0 +1,83 @@
+---
+id: anthropics/slack-gif-creator
+title: slack-gif-creator
+description: Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts.
+version: 1.0.0
+category: Design
+author: anthropics
+repo: anthropics/skills
+path: skills/slack-gif-creator
+tags:
+  - gif
+  - animation
+  - slack
+  - gif-creation
+  - gif-optimization
+---
+
+## Overview
+
+The slack-gif-creator skill provides a comprehensive toolkit for creating animated GIFs that are optimized for use in Slack. It includes technical specifications, validation tools, animation concepts, and design patterns to help build custom animated GIFs that meet Slack's requirements.
+
+## Technical Specifications
+
+### Dimensions
+- **Emoji GIFs**: 128x128 pixels
+- **Message GIFs**: 480x480 pixels
+
+### Animation Parameters
+- **Frame Rate**: 10-30 FPS recommended
+- **Color Palette**: 48-128 colors recommended
+- **Duration**: Keep emoji GIFs under 3 seconds
+- **File Size**: Optimize for efficient delivery
+
+## Core Components
+
+The toolkit includes several utilities:
+- **GIFBuilder** - Assembles frames and optimizes output
+- **Validators** - Ensures GIFs meet Slack's technical requirements
+- **Easing Functions** - Provides smooth motion effects
+- **Frame Helpers** - Common rendering convenience functions
+
+## Animation Techniques
+
+The toolkit covers eight primary animation concepts:
+- **Shake/Vibrate** - Quick directional movements
+- **Pulse/Heartbeat** - Rhythmic scaling effects
+- **Bounce** - Elastic, falling motion
+- **Spin/Rotate** - Rotational movement
+- **Fade Transitions** - Alpha blending effects
+- **Sliding** - Linear movement across frames
+- **Zoom Effects** - Scaling in and out
+- **Particle Burst** - Explosive scatter effects
+
+## Design Philosophy
+
+The toolkit emphasizes creative flexibility using PIL (Python Imaging Library) primitives rather than rigid templates. It deliberately excludes emoji font rendering and pre-packaged graphics, instead encouraging developers to build custom animations tailored to their needs.
+
+## Optimization Methods
+
+Reduce file size through:
+- Lowering frame rate (10-15 FPS for static content)
+- Reducing color palette depth
+- Decreasing dimensions
+- Removing duplicate frames
+- Using emoji-specific optimization modes
+
+## Dependencies
+
+The toolkit requires:
+- **Pillow** - Image processing and generation
+- **imageio** - GIF encoding and frame handling
+- **numpy** - Numerical operations for animation math
+
+## Use Cases
+
+The slack-gif-creator skill is useful for:
+- Creating custom emoji reactions and animations
+- Building branded animated assets for Slack workspaces
+- Generating dynamic status indicators
+- Designing engaging notification animations
+- Building automation tools that generate animated content
+
+Whether you're creating subtle emoji animations or eye-catching message GIFs, this toolkit provides the patterns and utilities needed to build effective, optimized animations for Slack.
