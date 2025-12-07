@@ -12,6 +12,7 @@ tags:
   - workflow-design
   - knowledge-organization
   - capability-extension
+isVerified: true
 ---
 
 ## Overview
@@ -21,16 +22,21 @@ The skill-creator skill provides comprehensive guidance for designing and buildi
 ## Core Principles
 
 ### Concise Context Usage
+
 The context window is a public good. Only include information Claude doesn't already possess. Challenge every piece of content to ensure it justifies its token cost.
 
 ### Appropriate Freedom Levels
+
 Match specificity to task fragility:
+
 - **Text-based instructions** work for flexible tasks
 - **Pseudocode** for moderate variation
 - **Specific scripts** for error-prone operations requiring consistency
 
 ### Skill Anatomy
+
 Every skill needs:
+
 - **SKILL.md** - Required file with YAML frontmatter (name and description fields)
 - **scripts/** - Deterministic, repeatedly-used code
 - **references/** - Documentation loaded as needed
@@ -39,12 +45,15 @@ Every skill needs:
 ## Skill Components
 
 ### SKILL.md Structure
+
 - Frontmatter contains triggering metadata
 - Body provides instructions (loaded after skill triggers)
 - Keep under 500 lines to minimize context bloat
 
 ### Bundled Resources
+
 Organize resources strategically:
+
 - **Scripts**: Deterministic, repeatedly-used code
 - **References**: Documentation loaded as needed
 - **Assets**: Templates, images, boilerplate files for output
@@ -52,6 +61,7 @@ Organize resources strategically:
 ## Progressive Disclosure Design
 
 Load information strategically across three levels:
+
 1. **Metadata** - Always present for skill discovery
 2. **SKILL.md Body** - When the skill is triggered
 3. **Bundled Resources** - As needed during execution
@@ -70,6 +80,7 @@ This prevents context bloat while keeping information discoverable.
 ## Use Cases
 
 The skill-creator skill is useful for:
+
 - Building custom skills for specialized domains
 - Creating reusable workflows and templates
 - Packaging tools and integrations as distributable skills
