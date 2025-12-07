@@ -3,6 +3,8 @@ use indicatif::{ProgressBar, ProgressStyle};
 use serde::Deserialize;
 use std::env;
 use std::fs;
+
+#[cfg(unix)]
 use std::os::unix::fs::PermissionsExt;
 
 const REPO: &str = "dcodesdev/clawd";
@@ -81,10 +83,7 @@ fn is_newer_version(current: &str, latest: &str) -> bool {
     let latest = version_to_comparable(latest);
 
     // Simple semver comparison
-    let current_parts: Vec<u32> = current
-        .split('.')
-        .filter_map(|s| s.parse().ok())
-        .collect();
+    let current_parts: Vec<u32> = current.split('.').filter_map(|s| s.parse().ok()).collect();
     let latest_parts: Vec<u32> = latest.split('.').filter_map(|s| s.parse().ok()).collect();
 
     for i in 0..3 {
@@ -178,10 +177,7 @@ pub async fn execute_upgrade(force: bool) -> Result<()> {
         if let Err(e) = fs::rename(&current_exe, &backup_path) {
             // Try with elevated permissions hint
             fs::remove_file(&temp_path).ok();
-            bail!(
-                "Failed to replace binary (try with sudo): {}",
-                e
-            );
+            bail!("Failed to replace binary (try with sudo): {}", e);
         }
         // Move new to current
         if let Err(e) = fs::rename(&temp_path, &current_exe) {
