@@ -7,13 +7,13 @@ Open-source collection of Claude skills. Clawd will install the Claude skills yo
 ## Installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dcodesdev/clawd/main/install.sh | sh
+curl -fsSL https://api.clawd.xyz/install.sh | sh
 ```
 
 Or install a specific version:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dcodesdev/clawd/main/install.sh | sh -s v1.0.0
+curl -fsSL https://api.clawd.xyz/install.sh | sh -s v1.0.0
 ```
 
 ## Usage
