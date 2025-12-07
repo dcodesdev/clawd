@@ -1,5 +1,7 @@
 # Clawd
 
+[![GitHub stars](https://img.shields.io/github/stars/dcodesdev/clawd?style=social)](https://github.com/dcodesdev/clawd)
+
 Open-source collection of Claude skills with a CLI for browsing and installing them.
 
 ## Installation
@@ -32,7 +34,7 @@ clawd upgrade
 
 ## Repository Structure
 
-```
+```text
 clawd/
 ├── cli/                    # Rust CLI application
 │   ├── src/
