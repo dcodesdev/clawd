@@ -2,7 +2,7 @@
 set -e
 
 REPO="dcodesdev/clawd"
-INSTALL_DIR="${CLAWD_INSTALL_DIR:-/usr/local/bin}"
+INSTALL_DIR="${CLAWD_INSTALL_DIR:-$HOME/.local/bin}"
 BINARY_NAME="clawd"
 
 # Colors for output
@@ -60,7 +60,7 @@ download_binary() {
     local filename="${BINARY_NAME}-${os}-${arch}${ext}"
     local url="https://github.com/${REPO}/releases/download/${version}/${filename}"
 
-    info "Downloading ${filename} (${version})..."
+    printf "${GREEN}[INFO]${NC} Downloading ${filename} (${version})...\n" >&2
 
     local tmp_dir
     tmp_dir=$(mktemp -d)
@@ -76,7 +76,7 @@ download_binary() {
     local checksums_file="${tmp_dir}/checksums.sha256"
 
     if curl -fsSL "$checksum_url" -o "$checksums_file" 2>/dev/null; then
-        info "Verifying checksum..."
+        printf "${GREEN}[INFO]${NC} Verifying checksum...\n" >&2
         local expected_checksum
         expected_checksum=$(grep "$filename" "$checksums_file" | awk '{print $1}')
 
@@ -95,18 +95,23 @@ download_binary() {
                 rm -rf "$tmp_dir"
                 error "Checksum verification failed!"
             fi
-            info "Checksum verified!"
+            printf "${GREEN}[INFO]${NC} Checksum verified!\n" >&2
         fi
     else
         warn "Could not download checksums, skipping verification"
     fi
 
-    echo "$tmp_file"
+    printf '%s' "$tmp_file"
 }
 
 install_binary() {
     local tmp_file="$1"
     local install_path="${INSTALL_DIR}/${BINARY_NAME}"
+
+    # Create install directory if it doesn't exist
+    if [ ! -d "$INSTALL_DIR" ]; then
+        mkdir -p "$INSTALL_DIR"
+    fi
 
     chmod +x "$tmp_file"
 
@@ -118,6 +123,15 @@ install_binary() {
     fi
 
     info "Installed to ${install_path}"
+
+    # Check if install directory is in PATH
+    case ":$PATH:" in
+        *":$INSTALL_DIR:"*) ;;
+        *)
+            warn "${INSTALL_DIR} is not in your PATH"
+            info "Add it by running: export PATH=\"\$PATH:${INSTALL_DIR}\""
+            ;;
+    esac
 }
 
 main() {
