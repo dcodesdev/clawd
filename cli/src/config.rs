@@ -41,7 +41,7 @@ impl Config {
     pub fn new(api_url: Option<String>) -> Result<Self> {
         let api_url = api_url
             .or_else(|| env::var("CLAWD_API_URL").ok())
-            .unwrap_or_else(|| "https://clawd-api.dcodes.dev".to_string());
+            .unwrap_or_else(|| "https://api.clawd.xyz".to_string());
 
         let home = directories::UserDirs::new().context("Could not find home directory")?;
         let install_base_path = home.home_dir().join(".claude/skills");
