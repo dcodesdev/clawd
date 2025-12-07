@@ -25,8 +25,8 @@ clawd list
 # Search for skills
 clawd search brainstorming
 
-# Download a skill
-clawd download obra/brainstorming
+# Add a skill
+clawd add obra/brainstorming
 
 # Update to latest version
 clawd upgrade
