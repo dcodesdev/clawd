@@ -21,13 +21,9 @@ clawd/
 ├── skills/                 # Skill definitions
 │   └── <author>/
 │       └── <skill-name>/
-│           ├── README.mdx  # Metadata + documentation
-│           └── skill/      # Skill content (packaged for users)
-│               ├── SKILL.md
-│               └── ...
+│           └── README.mdx  # Metadata + documentation
 ├── authors.json            # Author registry
 ├── readme-schema.json      # README.mdx validation schema
-├── skill-schema.json       # SKILL.md validation schema
 └── install.sh              # curl | sh installer script
 ```
 
@@ -62,9 +58,8 @@ pnpm test                   # Validate all skills against schemas
 1. Add yourself to `authors.json` if new
 2. Create `skills/<author>/<skill-name>/`
 3. Add `README.mdx` with frontmatter (see `readme-schema.json`)
-4. Add `skill/SKILL.md` with frontmatter (see `skill-schema.json`)
-5. Run `pnpm test` to validate
-6. Submit PR
+4. Run `pnpm test` to validate
+5. Submit PR
 
 ## Schemas
 
@@ -73,10 +68,6 @@ pnpm test                   # Validate all skills against schemas
 Required fields: `id`, `title`, `description`, `version`, `category`, `author`, `repo`, `path`
 
 Categories: `Development`, `DevOps`, `Writing`, `QA`, `Security`, `Data`, `Design`, `Other`
-
-### SKILL.md Frontmatter
-
-Required fields: `name`, `description`
 
 ## Environment Variables
 
