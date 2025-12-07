@@ -3,6 +3,8 @@ use indicatif::{ProgressBar, ProgressStyle};
 use serde::Deserialize;
 use std::env;
 use std::fs;
+
+#[cfg(unix)]
 use std::os::unix::fs::PermissionsExt;
 
 const REPO: &str = "dcodesdev/clawd";
