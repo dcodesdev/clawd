@@ -2,7 +2,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/dcodesdev/clawd?style=social)](https://github.com/dcodesdev/clawd)
 
-Open-source collection of Claude skills with a CLI for browsing and installing them.
+Open-source collection of Claude skills. Clawd will install the Claude skills you want for you.
 
 ## Installation
 
