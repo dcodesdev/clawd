@@ -1,0 +1,66 @@
+---
+id: obra/root-cause-tracing
+title: Root Cause Tracing
+description: Use when errors occur deep in execution and you need to trace back to find the original trigger - systematically traces bugs backward through call stack, adding instrumentation when needed, to identify source of invalid data or incorrect behavior
+version: 1.0.0
+category: Development
+author: obra
+repo: obra/superpowers
+path: skills/obra/root-cause-tracing
+tags:
+  - debugging
+  - root-cause-analysis
+  - troubleshooting
+  - error-handling
+---
+
+# Root Cause Tracing
+
+A systematic debugging methodology for tracing bugs backward through the call chain to find the original trigger rather than fixing symptoms.
+
+## Overview
+
+This skill teaches you how to debug effectively by understanding that fixing where an error manifests is not enough. Instead, "Trace backward through the call chain until you find the original trigger, then fix at the source."
+
+## Core Principle
+
+Never fix just where the error appears. Systematic backward tracing prevents treating symptoms while root causes persist and cause problems elsewhere.
+
+## When to Apply
+
+This technique is most valuable when:
+
+- Failures emerge deep within execution (not at entry points)
+- Call stacks reveal multiple layers of function invocation
+- Data corruption origins remain unclear
+- You need to determine which test or code triggers the problem
+
+## The Five-Step Tracing Methodology
+
+1. **Observe the Symptom** - Document where the error surfaces
+2. **Find Immediate Cause** - Identify the direct code responsible
+3. **Ask Who Called This** - Map the function that invoked the problematic code
+4. **Keep Tracing Upward** - Follow the call chain to understand data flow
+5. **Locate Original Trigger** - Discover where invalid data originated
+
+## Instrumentation Strategy
+
+When manual tracing proves insufficient, inject debugging code to understand the flow:
+
+```typescript
+const stack = new Error().stack
+console.error("DEBUG operation:", { context, stack })
+```
+
+Use `console.error()` in tests for visibility (loggers may not show output).
+
+## Defense-in-Depth Philosophy
+
+Rather than single-point fixes, implement validation across multiple layers:
+
+- Input validation at entry points
+- Parameter checks at each function level
+- Environment guards before dangerous operations
+- Pre-operation logging for accountability
+
+This layered approach prevents the same class of bugs from occurring in similar contexts.

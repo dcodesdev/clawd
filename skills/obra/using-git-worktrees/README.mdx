@@ -1,0 +1,47 @@
+---
+id: obra/using-git-worktrees
+title: Using Git Worktrees
+description: Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification
+version: 1.0.0
+category: Development
+author: obra
+repo: obra/superpowers
+path: skills/using-git-worktrees
+tags:
+  - git
+  - worktrees
+  - isolation
+  - workflow
+  - branching
+isVerified: false
+created_at: "2025-12-07"
+updated_at: "2025-12-07"
+license: MIT
+---
+
+# Using Git Worktrees
+
+## Overview
+
+Git worktrees create isolated workspaces within a single repository, allowing you to work on multiple branches simultaneously without switching contexts or managing multiple clones. This skill provides a systematic approach to setting up git worktrees with proper directory selection and safety verification.
+
+## When to Use
+
+Use this skill when:
+
+- Starting feature work that needs isolation from your current workspace
+- Before executing implementation plans where you need a clean, isolated environment
+- Working on multiple branches in parallel without context switching
+- You need baseline tests to pass before beginning work
+
+## Key Features
+
+- **Smart directory selection** - Follows a priority order to determine where to create worktrees
+- **Safety verification** - Ensures .gitignore is properly configured for project-local worktrees
+- **Auto-detection** - Automatically detects and runs appropriate setup commands (npm, cargo, pip, poetry, go)
+- **Baseline verification** - Runs tests to ensure the worktree starts in a clean state
+- **Integration** - Designed to work with other skills like brainstorming and plan execution
+
+## Core Principle
+
+Systematic directory selection + safety verification = reliable isolation.

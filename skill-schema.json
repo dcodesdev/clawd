@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SKILL.md Frontmatter Schema",
+  "type": "object",
+  "required": ["name", "description"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Short kebab-case identifier"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Explains when/how to use the skill"
+    }
+  },
+  "additionalProperties": false
+}

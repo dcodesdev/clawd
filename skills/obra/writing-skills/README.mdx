@@ -1,0 +1,60 @@
+---
+id: obra/writing-skills
+title: Writing Skills
+description: Use when creating new skills, editing existing skills, or verifying skills work before deployment - applies TDD to process documentation by testing with subagents before writing, iterating until bulletproof against rationalization
+version: 1.0.0
+category: Development
+author: obra
+repo: obra/superpowers
+path: skills/obra/writing-skills
+tags:
+  - skill-creation
+  - tdd
+  - documentation
+  - testing
+  - process-documentation
+---
+
+# Writing Skills
+
+This skill applies Test-Driven Development (TDD) principles to the creation and maintenance of process documentation. It treats skills as "production code for processes" - you write test cases (pressure scenarios with subagents), watch them fail (baseline behavior), write the skill documentation, and verify that agents now comply with the documented process.
+
+## Core Principle
+
+**Creating skills IS Test-Driven Development applied to process documentation.**
+
+If you didn't watch an agent fail without the skill, you don't know if the skill teaches the right thing.
+
+## Key Concepts
+
+- **The Iron Law**: No skill without a failing test first
+- **RED-GREEN-REFACTOR**: Same TDD cycle adapted for documentation
+  - RED: Run pressure scenarios without the skill, document baseline behavior
+  - GREEN: Write minimal skill documentation that addresses those failures
+  - REFACTOR: Close loopholes and iterate until bulletproof
+- **Rationalization Management**: Build explicit counters to agent rationalizations
+- **Search Optimization**: Rich descriptions with triggers and symptoms for discovery
+
+## Skill Types
+
+1. **Technique**: Concrete methods with steps to follow
+2. **Pattern**: Ways of thinking about problems
+3. **Reference**: API docs, syntax guides, tool documentation
+
+## When to Use
+
+Use this skill when:
+
+- Creating new skills for your team or agents
+- Editing existing skills to close loopholes
+- Verifying skills work before deployment
+- Need to ensure skills are bulletproof against rationalization
+- Building reusable process documentation
+
+## Key Testing Principles
+
+- Test with pressure scenarios that combine multiple stressors
+- Document exact rationalizations agents use when they fail
+- Write minimal documentation addressing those specific violations
+- Iterate through refactor cycles until bulletproof
+- Never skip testing for "simple additions" or "documentation updates"

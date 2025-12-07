@@ -1,0 +1,20 @@
+{
+  "anthropics": {
+    "name": "Anthropic",
+    "github": "anthropics",
+    "url": "https://www.anthropic.com",
+    "avatar": "https://github.com/anthropics.png"
+  },
+  "dcodes": {
+    "name": "dcodes",
+    "github": "dcodesdev",
+    "url": "https://www.dcodes.dev",
+    "avatar": "https://github.com/dcodesdev.png"
+  },
+  "obra": {
+    "name": "Jesse Vincent",
+    "github": "obra",
+    "url": "http://fsck.com/",
+    "avatar": "https://github.com/obra.png"
+  }
+}

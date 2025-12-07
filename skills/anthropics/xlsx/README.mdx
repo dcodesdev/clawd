@@ -1,0 +1,80 @@
+---
+id: anthropics/xlsx
+title: XLSX
+description: Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization.
+version: 1.0.0
+category: Data
+author: anthropics
+repo: anthropics/skills
+path: skills/xlsx
+isVerified: true
+tags:
+  - spreadsheet
+  - excel
+  - data
+  - formulas
+  - analysis
+---
+
+## Overview
+
+The XLSX skill enables comprehensive spreadsheet operations for creating, editing, and analyzing Excel files (.xlsx, .xlsm, .csv, .tsv). It provides tools for working with formulas, formatting, data analysis, and visualization while maintaining spreadsheet integrity.
+
+## Core Capabilities
+
+- **Create new spreadsheets** with formulas, formatting, and structure
+- **Read and analyze** spreadsheet data
+- **Modify existing files** while preserving formulas
+- **Perform data analysis** and visualization
+- **Recalculate formulas** with zero error verification
+
+## Key Features
+
+### Formula Management
+
+- Use Excel formulas instead of hardcoded values for dynamic, updateable spreadsheets
+- All deliverables must contain zero formula errors (#REF!, #DIV/0!, #VALUE!, #N/A, #NAME?)
+- Employ cell references instead of hardcodes for maintainability
+- Include documentation for any hardcoded values with sources, dates, and URLs
+
+### Financial Model Standards
+
+**Color Coding Convention:**
+
+- **Blue text**: Hardcoded inputs users will modify
+- **Black text**: All formulas and calculations
+- **Green text**: Links between worksheets
+- **Red text**: External file links
+- **Yellow background**: Key assumptions requiring attention
+
+**Number Formatting:**
+
+- Years as text strings ("2024")
+- Currency as $#,##0
+- Zeros displayed as "-"
+- Percentages as 0.0%
+- Multiples as 0.0x
+- Negative numbers in parentheses
+
+## Technical Workflow
+
+- Use **pandas** for data analysis operations
+- Use **openpyxl** for formula construction and formatting
+- After creating or modifying files with formulas, run the `recalc.py` script to recalculate all formulas and verify zero errors
+
+## Best Practices
+
+- Test formulas on sample cells before broad application
+- Verify cell references match Excel column/row conventions
+- Handle edge cases including zero, negative, and large values
+- Preserve existing template formats when updating files
+- Place all assumptions in separate cells
+- Document the source and rationale for key values
+
+## Primary Use Cases
+
+- Creating new spreadsheets with formulas and formatting
+- Reading or analyzing data from existing spreadsheets
+- Modifying existing spreadsheets while preserving formulas
+- Data analysis and visualization in spreadsheets
+- Recalculating formulas and verifying accuracy
