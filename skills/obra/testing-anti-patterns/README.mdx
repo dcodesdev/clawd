@@ -1,0 +1,38 @@
+---
+id: obra/testing-anti-patterns
+title: Testing Anti-Patterns
+description: Identify and avoid the five major testing anti-patterns that undermine code quality. Learn why mocking without understanding breaks tests, how test-only methods pollute production code, and the importance of testing actual behavior rather than mock behavior.
+version: 1.0.0
+category: Development
+author: obra
+repo: obra/superpowers
+path: skills/obra/testing-anti-patterns
+tags:
+  - testing
+  - anti-patterns
+  - mocks
+  - best-practices
+  - code-quality
+---
+
+## Testing Anti-Patterns
+
+This skill teaches how to identify and avoid the five major anti-patterns that undermine effective testing practices. The core principle: "Test what the code does, not what the mocks do."
+
+### The Three Iron Laws
+
+1. Never verify mock behavior
+2. Never add test-only methods to production classes
+3. Never mock without understanding dependencies
+
+### Five Major Anti-Patterns
+
+1. **Testing Mock Behavior** - Verifying mocks exist rather than actual functionality
+2. **Test-Only Methods in Production** - Adding cleanup methods that only tests call
+3. **Mocking Without Understanding** - Over-mocking that eliminates necessary side effects
+4. **Incomplete Mocks** - Partial mocks that hide structural assumptions
+5. **Integration Tests as Afterthought** - Testing after implementation instead of before
+
+### Prevention Strategy
+
+Writing tests first through TDD forces examination of actual behavior before mocking, catching these anti-patterns early. This skill works best in combination with Test-Driven Development practices.

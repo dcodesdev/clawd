@@ -1,0 +1,28 @@
+---
+id: obra/finishing-a-development-branch
+title: Finishing a Development Branch
+description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+version: 1.0.0
+category: Development
+author: obra
+repo: obra/superpowers
+path: skills/finishing-a-development-branch
+tags:
+  - completion
+  - git-workflow
+  - testing
+  - integration
+  - branch-management
+---
+
+# Finishing a Development Branch
+
+This skill orchestrates the final stage of development work by verifying tests, presenting integration options, executing the chosen workflow, and cleaning up appropriately. Use it when implementation is complete, all tests pass, and you need to decide how to integrate the work.
+
+The core workflow is straightforward: **Verify tests → Present options → Execute choice → Clean up**.
+
+The process begins by verifying the project test suite passes—if tests fail, the workflow halts and displays failures. Next, the base branch is determined (typically main or master). Then the developer is presented with exactly four structured options: merge back to the base branch locally, push and create a Pull Request, keep the branch as-is for later, or discard all work.
+
+Each option has distinct git operations and worktree management rules. Options 1, 2, and 4 cleanup the worktree, while Option 3 preserves it. For Option 4 (discard), users must type the exact word "discard" to confirm permanent deletion.
+
+The skill emphasizes critical safeguards: never proceeding with failing tests, never deleting work without confirmation, and proper worktree management across different completion paths. It prevents common errors like skipping test verification, asking ambiguous questions, or improperly managing worktrees.

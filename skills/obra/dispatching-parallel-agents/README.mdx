@@ -1,0 +1,26 @@
+---
+id: obra/dispatching-parallel-agents
+title: Dispatching Parallel Agents
+description: Use when facing 3+ independent failures that can be investigated without shared state or dependencies - dispatches multiple Claude agents to investigate and fix independent problems concurrently
+version: 1.0.0
+category: Development
+author: obra
+repo: obra/superpowers
+path: skills/dispatching-parallel-agents
+tags:
+  - parallel-execution
+  - debugging
+  - agents
+  - concurrent-investigation
+  - test-failures
+---
+
+# Dispatching Parallel Agents
+
+When you have multiple unrelated failures across different test files or subsystems, investigating them sequentially wastes time. This skill enables dispatching one Claude agent per independent problem domain to investigate and fix issues concurrently.
+
+The core principle is straightforward: **dispatch one agent per independent problem domain and let them work in parallel**. This approach is most effective when you have 3+ test files failing with different root causes, multiple broken subsystems that operate independently, and each problem can be understood without context from others.
+
+Use this skill to identify independent domains, create focused agent tasks with specific scope and clear constraints, dispatch them in parallel, and then review and integrate the results. This enables solving 3 problems in the time it would take to solve 1 sequentially.
+
+Key benefits include parallelization of investigations, focused scope for each agent, independent work without interference, and significant time savings—often completing concurrent investigations in the time of a single sequential investigation.

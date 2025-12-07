@@ -1,0 +1,52 @@
+---
+id: obra/condition-based-waiting
+title: Condition-Based Waiting
+description: Use when tests have race conditions, timing dependencies, or inconsistent pass/fail behavior - replaces arbitrary timeouts with condition polling to wait for actual state changes, eliminating flaky tests from timing guesses
+version: 1.0.0
+category: Testing
+author: obra
+repo: obra/superpowers
+path: skills/condition-based-waiting
+tags:
+  - testing
+  - race-conditions
+  - async
+  - flaky-tests
+---
+
+## Overview
+
+This skill eliminates flaky tests by replacing arbitrary timeouts with condition-based polling. Instead of guessing how long an operation takes, wait for the actual condition you care about.
+
+## The Problem
+
+Flaky tests often use arbitrary delays like `setTimeout(50)` or `sleep(100)`. These guesses work fine on fast machines but fail under load, in CI, or with parallel execution. Different computers and environments have different performance characteristics, making these timeouts unreliable.
+
+## The Solution
+
+Wait for the actual condition you care about, not a guess about timing:
+
+```typescript
+// Before: Guessing
+await new Promise(r => setTimeout(r, 50));
+
+// After: Condition-based
+await waitFor(() => result !== undefined);
+```
+
+## When to Use
+
+- Tests with arbitrary delays (setTimeout, sleep, time.sleep)
+- Tests that fail inconsistently or under load
+- Tests that timeout during parallel execution
+- Waiting for async operations to complete
+
+## Real-World Impact
+
+Applied to a debugging session:
+- Fixed 15 flaky tests across 3 files
+- Pass rate improved from 60% to 100%
+- Execution time improved by 40%
+- Eliminated race conditions entirely
+
+This skill transforms unreliable tests into deterministic, fast-running tests that consistently pass.

@@ -1,0 +1,26 @@
+---
+id: obra/executing-plans
+title: Executing Plans
+description: Use when partner provides a complete implementation plan to execute in controlled batches with review checkpoints - loads plan, reviews critically, executes tasks in batches, reports for review between batches
+version: 1.0.0
+category: Development
+author: obra
+repo: obra/superpowers
+path: skills/executing-plans
+tags:
+  - implementation
+  - planning
+  - task-execution
+  - batch-processing
+  - review-checkpoints
+---
+
+# Executing Plans
+
+This skill guides the systematic execution of implementation plans through controlled batches with architect review checkpoints. When a partner provides a complete implementation plan, this skill helps load it, review it critically, execute tasks in batches, and report progress between batches.
+
+The core principle is **batch execution with checkpoints for architect review**. The workflow emphasizes announcing upfront "I'm using the executing-plans skill to implement this plan" and then following a structured five-step process.
+
+The process begins with loading and reviewing the plan critically to identify any questions or concerns before starting. Then tasks execute in batches (typically 3 tasks per batch) with verifications run and progress marked. After each batch completes, results are reported with verification outputs and feedback is awaited. Based on feedback, changes are applied and the next batch executes. Finally, upon completion, the skill transitions to using the finishing-a-development-branch skill.
+
+Critical safeguards include stopping immediately when hitting blockers—missing dependencies, failing tests, or unclear instructions—rather than proceeding with assumptions. This skill prioritizes adherence to documented steps, verification completion, and checkpointed review cycles over rapid execution.
