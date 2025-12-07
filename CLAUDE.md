@@ -32,7 +32,7 @@ clawd/
 ```bash
 clawd list                  # List available skills
 clawd search <query>        # Search for skills
-clawd download <id>         # Download a skill (e.g., dcodes/brainstorming)
+clawd add <id>               # Add a skill (e.g., dcodes/brainstorming)
 clawd upgrade               # Self-update to latest version
 ```
 

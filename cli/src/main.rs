@@ -35,8 +35,8 @@ enum Commands {
     },
     /// Search for a skill
     Search { query: String },
-    /// Download a skill
-    Download {
+    /// Add a skill
+    Add {
         /// Skill ID in format: author/skill-name
         skill_id: String,
 
@@ -77,7 +77,7 @@ async fn main() -> anyhow::Result<()> {
             list::execute_list(page, limit, api_url).await?;
         }
         Commands::Search { query } => println!("Searching for: {}", query),
-        Commands::Download {
+        Commands::Add {
             skill_id,
             scope,
             force,
