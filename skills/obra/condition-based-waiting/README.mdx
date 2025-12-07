@@ -28,10 +28,10 @@ Wait for the actual condition you care about, not a guess about timing:
 
 ```typescript
 // Before: Guessing
-await new Promise(r => setTimeout(r, 50));
+await new Promise((r) => setTimeout(r, 50))
 
 // After: Condition-based
-await waitFor(() => result !== undefined);
+await waitFor(() => result !== undefined)
 ```
 
 ## When to Use
@@ -44,6 +44,7 @@ await waitFor(() => result !== undefined);
 ## Real-World Impact
 
 Applied to a debugging session:
+
 - Fixed 15 flaky tests across 3 files
 - Pass rate improved from 60% to 100%
 - Execution time improved by 40%

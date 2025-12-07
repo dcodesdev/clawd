@@ -29,6 +29,7 @@ Never fix just where the error appears. Systematic backward tracing prevents tre
 ## When to Apply
 
 This technique is most valuable when:
+
 - Failures emerge deep within execution (not at entry points)
 - Call stacks reveal multiple layers of function invocation
 - Data corruption origins remain unclear
@@ -47,8 +48,8 @@ This technique is most valuable when:
 When manual tracing proves insufficient, inject debugging code to understand the flow:
 
 ```typescript
-const stack = new Error().stack;
-console.error('DEBUG operation:', { context, stack });
+const stack = new Error().stack
+console.error("DEBUG operation:", { context, stack })
 ```
 
 Use `console.error()` in tests for visibility (loggers may not show output).
@@ -56,6 +57,7 @@ Use `console.error()` in tests for visibility (loggers may not show output).
 ## Defense-in-Depth Philosophy
 
 Rather than single-point fixes, implement validation across multiple layers:
+
 - Input validation at entry points
 - Parameter checks at each function level
 - Environment guards before dangerous operations
